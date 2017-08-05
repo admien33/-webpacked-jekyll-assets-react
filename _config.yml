@@ -107,15 +107,16 @@ webpack_assets :
   js:
     # webpack not compatible with jekyll-assets, if add hash on filename, must be done on webpack
     path_input: "./assets/js/"
-    path_output: "./assets/"
-    input_dir: "app"
-    output_dir: "dist"   
+    input_dir: ""
+    path_components: "./components/"
+    path_output: "./assets/"    
+    output_dir: "dist"    
     common:
       - "vendor.js"
       - "common_critic.js"
     add_custom_on_pages_else_default: true
   css:
-    # default mode : assets generated on webpack are processed with plugin jekyll-assets, see /_includes/html_elt/head.html
+    # default mode : assets generated on webpack are processed with plugin jekyll-assets, see /_includes/head.html
     # assets_ouput relative to site.assets.source defined repos, default : webpack put css assets on "_assets/css_wp"    
     path_input: "./assets/scss/"
     assets_ouput: "css_wp"
@@ -129,7 +130,4 @@ webpack_assets :
     # path_output  default js ouput :  "./assets/dist/"
   fonts:
     path_input: "./assets/fonts/"
-    # path_output  default js ouput :  "./assets/dist/"
-  components:
-    path_input: "./assets/js/app/components/"
-    # no path_output  folder used with react templates
+    # path_output  default js ouput :  "./assets/dist/" 
