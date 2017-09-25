@@ -39,17 +39,21 @@ path_tmp = _assets_ref_path + output_dir_css;
 const path_dest_css = path.resolve(__dirname,config_source,path_tmp);
 
 
-fse.moveSync(path_output_js, path_dest_js, { overwrite: true });
-fse.moveSync(path_output_css, path_dest_css, { overwrite: true });
+// fse.moveSync(path_output_js, path_dest_js, { overwrite: true });
+// fse.moveSync(path_output_css, path_dest_css, { overwrite: true });
+
+fse.copySync(path_output_js, path_dest_js, { overwrite: true });
+fse.copySync(path_output_css, path_dest_css, { overwrite: true });
 
 let assets_wp = fs.readdirSync(path.resolve(__dirname,path_ouput_wp));
 assets_wp.forEach ( (asset) => {
 	let asset_src = path.resolve(__dirname,path_ouput_wp,asset);
 	let asset_dest = path_dest_js + sep_path+ asset;
 
-	fse.moveSync(asset_src, asset_dest, { overwrite: true });
+	// fse.moveSync(asset_src, asset_dest, { overwrite: true });
+	fse.copySync(asset_src, asset_dest, { overwrite: true });
 });
 
-fse.removeSync(assets_wp_base);
+// fse.removeSync(assets_wp_base);
 
 
