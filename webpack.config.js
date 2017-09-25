@@ -217,7 +217,7 @@ const config = {
       'window.$': 'jquery'
     }),
     new WebpackShellPlugin({
-      onBuildEnd: ['node webpack.postprocess.js'],      
+      onBuildExit: ['node webpack.postprocess.js'],      
       safe: true
     })
     
